@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48FB3BA0-1B40-45B2-BFB4-6347DCBFDDE9}</ProjectGuid>
+    <ProjectGuid>{0CF77A07-BAC5-410A-BAA7-12382243541A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data</RootNamespace>
-    <AssemblyName>Data</AssemblyName>
+    <RootNamespace>Repository</RootNamespace>
+    <AssemblyName>Repository</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,39 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\DataContext.cs" />
-    <Compile Include="Entities\Author.cs" />
-    <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\Book.cs" />
-    <Compile Include="Migrations\202206121508272_initial.cs" />
-    <Compile Include="Migrations\202206121508272_initial.designer.cs">
-      <DependentUpon>202206121508272_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206121626584_second.cs" />
-    <Compile Include="Migrations\202206121626584_second.designer.cs">
-      <DependentUpon>202206121626584_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206121644075_third.cs" />
-    <Compile Include="Migrations\202206121644075_third.designer.cs">
-      <DependentUpon>202206121644075_third.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{48FB3BA0-1B40-45B2-BFB4-6347DCBFDDE9}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202206121508272_initial.resx">
-      <DependentUpon>202206121508272_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206121626584_second.resx">
-      <DependentUpon>202206121626584_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206121644075_third.resx">
-      <DependentUpon>202206121644075_third.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
